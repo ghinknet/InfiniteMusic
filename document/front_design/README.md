@@ -312,11 +312,11 @@
 ###### `code` `int` `response code`
 ###### `content` `dict` `dict of list, included whitelist and blacklist`
 ##### Content Dict(content):
-##### `notice` `string` `System Notice`
-##### `switcher` `bool` `Main switcher for the song function`
-##### `igTime` `bool` ``Main switcher to ignore the time limit`
-##### `timeRule` `list` `the timeRule setting`
-#### List of time rule:
-##### `0` `Index` `Index`
-##### `1` `HH:MM:SS` `begin time`
-##### `2` `HH:MM:SS` `end time`
+###### `notice` `string` `System Notice`
+###### `switcher` `bool` `Main switcher for the song function`
+###### `igTime` `bool` `Main switcher to ignore the time limit`
+###### `timeRule` `list` `the timeRule setting`
+##### List of time rule:
+###### `0` `Index` `Index`
+###### `1` `HH:MM:SS` `begin time`
+###### `2` `HH:MM:SS` `end time`
