@@ -192,7 +192,7 @@
 ##### Json Args: 
 ###### `code` `int` `response code`
 
-### Audit Page (Writing)
+### Audit Page
 #### The audit page use the path "/admin/audit/song" for song audit
 #### Only Admin can request this interface
 #### Get list of songs that songed by users
@@ -218,12 +218,39 @@
 ###### `url` `string` `the media url of this song (source platform or system cache)`
 #### Request for audit operate:
 #### WebApi Interface Detail:
-##### Path: `/api/admin/audit`
+##### Path: `/api/admin/listaudit`
 ##### Method: `POST`
 ##### Args: 
 ###### `token` `string` `user(admin operator) token`
 ###### `sid` `int` `id of this song(v.) event`
-###### `operate` `string` `pass, abort and ignore`
+###### `operate` `string` `pass, abort or ignore`
+##### Response Format: `Json`
+##### Json Args: 
+###### `code` `int` `response code`
+#### The audit page use the path "/admin/audit/auth" for real name auth audit
+#### Only Admin can request this interface
+#### Get list of user's real name auth.
+#### WebApi Interface Detail:
+##### Path: `/api/auditlist/real`
+##### Method: `POST`
+##### Args:
+###### `token` `string` `user(admin operator) token`
+##### Response Format: `Json`
+##### Json Args:
+###### `code` `int` `response code`
+###### `content` `list` `list of all real name auth requests`
+##### List of real name auth requests (content):
+###### `uid` `int` `id of the user`
+###### `img` `string` `the url of the real name auth img`
+###### `name` `string` `real name of the user`
+#### Request for audit operate:
+#### WebApi Interface Detail:
+##### Path: `/api/admin/realaudit`
+##### Method: `POST`
+##### Argv:
+###### `token` `string` `user(admin operator) token`
+###### `uid` `int` `id of the user that you audit`
+###### `operate` `string` `pass or abort`
 ##### Response Format: `Json`
 ##### Json Args: 
 ###### `code` `int` `response code`
