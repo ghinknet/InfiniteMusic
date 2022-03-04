@@ -164,3 +164,83 @@
 ## Back (Admin)
 
 ### Access Page
+#### The access page use the path "/admin/access"
+#### Only Admin can request this interface
+#### Get list of user:
+#### WebApi Interface Detail:
+##### Path: `/api/userlist`
+##### Method: `POST`
+##### Args: 
+###### `token` `string` `user(admin operator) token`
+##### Response Format: `Json`
+##### Json Args: 
+###### `code` `int` `response code`
+###### `content` `list` `list of all users`
+##### List of all users (content):
+###### `uid` `int` `user id`
+###### `nickname` `string` `user's nickname`
+###### `name` `string` `user's real name (if realname auth passed)`
+#### Request for change operate:
+#### WebApi Interface Detail:
+##### Path: `/api/admin/access`
+##### Method: `POST`
+##### Args: 
+###### `token` `string` `user(admin operator) token`
+###### `uid` `int` `user's id to change access`
+###### `operate` `string` `admin or user, destination`
+##### Response Format: `Json`
+##### Json Args: 
+###### `code` `int` `response code`
+
+### Audit Page (Writing)
+#### The audit page use the path "/admin/audit/song" for song audit
+#### Only Admin can request this interface
+#### Get list of songs that songed by users
+#### WebApi Interface Detail:
+##### Path: `/api/auditlist/song`
+##### Method: `POST`
+##### Args: 
+###### `token` `string` `user(admin operator) token`
+##### Response Format: `Json`
+##### Json Args: 
+###### `code` `int` `response code`
+###### `content` `list` `list of all users`
+##### List of songs that users songed (content):
+###### `sid` `int` `id of this song(v.) event`
+###### `uid` `int` `user id`
+###### `nickname` `string` `user's nickname`
+###### `name` `string` `user's real name (if realname auth passed)`
+###### `platform` `int` `platform of the song`
+###### `id` `int` `id of the song`
+###### `name` `string` `name of song`
+###### `artists` `list` `list of artists`
+###### `album` `dict` `album of this song`
+###### `url` `string` `the media url of this song (source platform or system cache)`
+#### Request for audit operate:
+#### WebApi Interface Detail:
+##### Path: `/api/admin/audit`
+##### Method: `POST`
+##### Args: 
+###### `token` `string` `user(admin operator) token`
+###### `sid` `int` `id of this song(v.) event`
+###### `operate` `string` `pass, abort and ignore`
+##### Response Format: `Json`
+##### Json Args: 
+###### `code` `int` `response code`
+
+### List Page (Writing)
+#### The list manage page use the path "/admin/list"
+#### Only Admin can request this interface
+#### Requests the public interface to get the list of blacklist songs and whitelist songs
+##### `/api/list`
+#### Request for list operate:
+#### WebApi Interface Detail:
+##### Path: `/api/`
+##### Method: `POST`
+##### Args: 
+###### `token` `string` `user(admin operator) token`
+###### `sid` `int` `id of this song(v.) event`
+###### `operate` `string` `pass, abort and ignore`
+##### Response Format: `Json`
+##### Json Args: 
+###### `code` `int` `response code`
