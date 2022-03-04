@@ -13,6 +13,8 @@
 #### 2. Audit Page
 #### 3. List Page
 #### 4. System Page
+### Public
+#### 1. System Interface
 
 ## Before
 #### All template use WebApi to deal the operate
@@ -255,19 +257,66 @@
 ##### Json Args: 
 ###### `code` `int` `response code`
 
-### List Page (Writing)
+### List Page
 #### The list manage page use the path "/admin/list"
 #### Only Admin can request this interface
 #### Requests the public interface to get the list of blacklist songs and whitelist songs
 ##### `/api/list`
 #### Request for list operate:
 #### WebApi Interface Detail:
-##### Path: `/api/`
+##### Path: `/api/admin/list`
 ##### Method: `POST`
 ##### Args: 
 ###### `token` `string` `user(admin operator) token`
 ###### `sid` `int` `id of this song(v.) event`
-###### `operate` `string` `pass, abort and ignore`
+###### `operate` `string` `white, black, remove`
 ##### Response Format: `Json`
 ##### Json Args: 
 ###### `code` `int` `response code`
+
+### System Page
+#### The system control page use the path "/admin/system"
+#### Only Admin can request this interface
+#### Options:
+##### `notice` `string` `System Notice`
+##### `switcher` `bool` `Main switcher for the song function`
+##### `igTime` `bool` ``Main switcher to ignore the time limit`
+##### `timeRule` `list` `the timeRule setting`
+#### timeRule look like:
+``` [[6, "16:00:00", "23:59:59"], [0, "00:00:00", "8:00:00"]]```
+#### 6 stand for Sat., and 0 stand for Sun.
+#### I dont know how to design the form, everything depends on you guys :D
+#### Get the setting now use the public interface: "System Interface"
+#### Save the setting operate:
+#### WebApi Interface Detail:
+##### Path: `/api/admin/system`
+##### Method: `POST`
+##### Args: 
+###### `token` `string` `user(admin operator) token`
+###### `OPTION` `TYPE` `NOTICE`
+###### ```See the detail in options```
+##### Response Format: `Json`
+##### Json Args: 
+###### `code` `int` `response code`
+
+## Public
+### System Interface
+#### Anybody can directly request this interface
+#### Get system setting
+##### WebApi Interface Detail:
+##### Path: `/api/system`
+##### Method: `GET`
+##### Args: `Nothing`
+##### Response Format: `Json`
+##### Json Args:
+###### `code` `int` `response code`
+###### `content` `dict` `dict of list, included whitelist and blacklist`
+##### Content Dict(content):
+##### `notice` `string` `System Notice`
+##### `switcher` `bool` `Main switcher for the song function`
+##### `igTime` `bool` ``Main switcher to ignore the time limit`
+##### `timeRule` `list` `the timeRule setting`
+#### List of time rule:
+##### `0` `Index` `Index`
+##### `1` `HH:MM:SS` `begin time`
+##### `2` `HH:MM:SS` `end time`
