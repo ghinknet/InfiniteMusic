@@ -38,6 +38,7 @@
 ##### Method: `POST`
 ##### Args:
 ###### `keyword` `string` `keyword of the song`
+##### Cookie:
 ###### `token` `string` `user token`
 ##### Response Format: `Json`
 ##### Json Args: 
@@ -130,6 +131,7 @@
 ##### Args: 
 ###### `platform` `int` `id of the platform`
 ###### `id` `int` `id of the song`
+##### Cookie:
 ###### `token` `string` `user token`
 ##### Response Format: `Json`
 ##### Json Args: 
@@ -158,6 +160,7 @@
 ###### `platform` `int` `id of the platform`
 ###### `id` `int` `id of the song`
 ###### `date` `string` `YYYY-MM-DD`
+##### Cookie:
 ###### `token` `string` `user token`
 ##### Response Format: `Json`
 ##### Json Args: 
@@ -171,8 +174,8 @@
 #### Get list of user:
 #### WebApi Interface Detail:
 ##### Path: `/api/userlist`
-##### Method: `POST`
-##### Args: 
+##### Method: `GET`
+##### Cookie:
 ###### `token` `string` `user(admin operator) token`
 ##### Response Format: `Json`
 ##### Json Args: 
@@ -200,8 +203,8 @@
 #### Get list of songs that songed by users
 #### WebApi Interface Detail:
 ##### Path: `/api/auditlist/song`
-##### Method: `POST`
-##### Args: 
+##### Method: `GET`
+##### Cookie:
 ###### `token` `string` `user(admin operator) token`
 ##### Response Format: `Json`
 ##### Json Args: 
@@ -234,8 +237,8 @@
 #### Get list of user's real name auth.
 #### WebApi Interface Detail:
 ##### Path: `/api/auditlist/real`
-##### Method: `POST`
-##### Args:
+##### Method: `GET`
+##### Cookie:
 ###### `token` `string` `user(admin operator) token`
 ##### Response Format: `Json`
 ##### Json Args:
@@ -250,9 +253,10 @@
 ##### Path: `/api/admin/realaudit`
 ##### Method: `POST`
 ##### Argv:
-###### `token` `string` `user(admin operator) token`
 ###### `uid` `int` `id of the user that you audit`
 ###### `operate` `string` `pass or abort`
+##### Cookie:
+###### `token` `string` `user(admin operator) token`
 ##### Response Format: `Json`
 ##### Json Args: 
 ###### `code` `int` `response code`
@@ -267,9 +271,10 @@
 ##### Path: `/api/admin/list`
 ##### Method: `POST`
 ##### Args: 
-###### `token` `string` `user(admin operator) token`
 ###### `sid` `int` `id of this song(v.) event`
 ###### `operate` `string` `white, black, remove`
+##### Cookie:
+###### `token` `string` `user(admin operator) token`
 ##### Response Format: `Json`
 ##### Json Args: 
 ###### `code` `int` `response code`
@@ -292,9 +297,10 @@
 ##### Path: `/api/admin/system`
 ##### Method: `POST`
 ##### Args: 
-###### `token` `string` `user(admin operator) token`
 ###### `OPTION` `TYPE` `NOTICE`
 ###### ```See the detail in options```
+##### Cookie:
+###### `token` `string` `user(admin operator) token`
 ##### Response Format: `Json`
 ##### Json Args: 
 ###### `code` `int` `response code`
