@@ -1,3 +1,3 @@
-# gesong
+# InfiniteMusic
 
-GeSong System
+Infinite Music System
