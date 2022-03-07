@@ -1,4 +1,4 @@
-# Front Design For GeSong System
+# Front Design For InfiniteMusic System
 
 ## Content
 ### Before
